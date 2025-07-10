@@ -4,18 +4,19 @@ class Main
 {
     static int[] selectionSort(int[] arr,int n)
     {
-        for(int i=0;i<n-2;i++)
+        for(int i=0;i<n-1;i++)
         {
-            int min=arr[i];
-            for(int j=i+1;j<n-1;j++)
+            int min=i;
+            for(int j=i+1;j<n;j++)
             {
-                if(arr[i]<arr[j])
+                if(arr[j]<arr[min])
                 {
-                    arr[i]=arr[j]^arr[j];
-                    arr[j]=arr[i]^arr[j];
-                    arr[i]=arr[i]^arr[j];
+                   min=j;
                 }
             }
+            int te=arr[min];
+            arr[min]=arr[i];
+            arr[i]=te;
         }
         return arr;
     }
